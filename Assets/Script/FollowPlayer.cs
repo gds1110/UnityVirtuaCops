@@ -15,6 +15,7 @@ public class FollowPlayer : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
@@ -28,12 +29,11 @@ public class FollowPlayer : MonoBehaviour
         transform.position = pos;
 
         float dist = Vector3.Distance(target.position, myTransform.position);
-        if (dist <= 5)
+
+        if (dist <= 5 )
         {
             animator.SetTrigger("Close with Player");
-            animator.SetBool("Throw", true);
         }
-        else
-            animator.SetBool("Throw", false);
+
     }
 }
