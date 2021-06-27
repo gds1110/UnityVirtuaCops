@@ -39,7 +39,7 @@ public class CameraMovement : MonoBehaviour
             Vector3 targetDirection = wayPoints[0].position - transform.position;
             Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, Time.deltaTime / 2, 0);
             transform.rotation = Quaternion.LookRotation(newDirection);
-
+           // transform.LookAt(newDirection);
             if(originalRotation !=transform.rotation)
             {
                 yield return new WaitForEndOfFrame();
@@ -59,7 +59,7 @@ public class CameraMovement : MonoBehaviour
         cameraMovement = this;
 
         wayPoints[0].LookAt(transform.position);
-        for(int x=1;x<wayPoints.Count;x++)
+        for (int x = 1; x < wayPoints.Count; x++)
         {
             wayPoints[x].LookAt(wayPoints[x - 1].transform.position);
         }

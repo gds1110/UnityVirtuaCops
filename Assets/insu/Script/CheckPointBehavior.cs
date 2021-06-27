@@ -8,7 +8,7 @@ public class CheckPointBehavior : MonoBehaviour
     public bool loadScene;
     public bool cameraWayPoint;
     public string sceneToLoad;
-
+    public bool BattleZone;
 
     private void OnTriggerEnter(Collider other)
     {
