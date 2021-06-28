@@ -12,6 +12,7 @@ public class BattleZoneCheck : MonoBehaviour
     public TimelineAsset timeline;
   //  public CinemachineCameraOffset chnemaCamera;
     public bool Checking = false;
+    public EnemySpawn_insu Espawn;
     // Start is called before the first frame update
     //  public ICinemachineCamera cinemachineCamera;
    
@@ -20,6 +21,9 @@ public class BattleZoneCheck : MonoBehaviour
     void Start()
     {
         playableDirector.GetComponent<PlayableDirector>();
+        //Espawn = gameObject.GetComponent<EnemySpawn_insu>();
+        Espawn= gameObject.GetComponentInChildren<EnemySpawn_insu>();
+        //Espawn.gameObject.SetActive(false);
         // cinemachineCamera = GetComponent<CinemachineVirtualCamera>();
      
     }
@@ -41,8 +45,10 @@ public class BattleZoneCheck : MonoBehaviour
             {
                 Checking = true;
                 playableDirector.Pause();
-                
-                StartCoroutine(BattleTime());
+                //Espawn.gameObject.SetActive(true);
+                Espawn.spawnCheck = true;
+                //StartCoroutine(BattleTime());
+                StartCoroutine(DuringBattle());
             }
         }
     }
@@ -50,6 +56,17 @@ public class BattleZoneCheck : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         playableDirector.Play();
+    }
+    IEnumerator DuringBattle()
+    {
+        //yield return new WaitUntil(() => Espawn.battleOff == true);
+        //playableDirector.Play();
+        while(Espawn.battleOff==false)
+        {
+            yield return null; 
+        }
+        playableDirector.Play();
+
     }
 
 }
