@@ -7,35 +7,31 @@ public class GrenadeThrower : MonoBehaviour
     public float throwForce = 40f;
     public GameObject grenadePrefab;
     public Animator animator;
-
-   private float coolTime;
-    private float timer;
-
+    int throwCount = 0;
+    int maxThrowCount = 1;
     private void Start()
     {
         animator = GetComponent<Animator>();
-        coolTime = 4f;
-        timer = 0;
     }
 
     void Update()
     {
-        timer += Time.deltaTime;
 
-        if (timer >= coolTime)
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Throw") &&
+            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.4f &&
+            animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.6f &&
+            throwCount < maxThrowCount)
         {
             ThrowGrenade();
             // 다음 상태로
-            animator.SetTrigger("Threw");
-            timer = 0;
+            animator.SetTrigger("Throw");
+            throwCount++;
         }
-        //if (!PlayerMovement.instance.anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-        //{
-        //    PlayerMovement.instance.anim.SetBool("Attack", false);
-        //    PlayerMovement.instance.anim.SetBool("Walk", false);
-        //    PlayerMovement.instance.anim.SetBool("Idle", true);
-        //}
 
+        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Throw"))
+        {
+            throwCount = 0;
+        }
     }
 
     void ThrowGrenade()
