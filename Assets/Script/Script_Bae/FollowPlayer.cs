@@ -15,6 +15,8 @@ public class FollowPlayer : MonoBehaviour
     public bool isDeath;
     public float deathWaitingTime;
     public float dist;
+    public bool isAppear;
+    bool isTarget;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -22,19 +24,35 @@ public class FollowPlayer : MonoBehaviour
         deathWaitingTime = 3.0f;
         isWalk = false;
         isDeath = false;
+        isAppear = true;
+        isTarget = false;
         dist = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float prevY = transform.position.y;
-        
-        transform.LookAt(target);
-        var pos = transform.position;
-        pos.y = prevY;
-        transform.position = pos;
+   
+        if(isAppear)
+        {
+            animator.SetTrigger("Appear");
+            isAppear = false;
+        }
 
+        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Appear") && isAppear != true)
+        {
+            isTarget = true;
+        }
+            if (isTarget)
+            {
+                float prevY = transform.position.y;
+
+                transform.LookAt(target);
+                var pos = transform.position;
+                pos.y = prevY;
+                transform.position = pos;
+            }
+       
         dist = Vector3.Distance(target.position, myTransform.position);
 
         if (dist <= 5 )
