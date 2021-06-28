@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class UIController_Sally : MonoBehaviour
 {
+    Gun_Sally gun;
+    PlayerController_Sally player;
+
     public GameObject[] hotdog;
     public GameObject[] life;
-
-    Gun_Sally gun;
-    PlayerController_Sally heart;
+    public GameObject gameoverUI;
 
     // Start is called before the first frame update
     void Start()
     {
         gun = GameObject.Find("Player").GetComponent<Gun_Sally>();
-        heart = GameObject.Find("Player").GetComponent<PlayerController_Sally>();
+        player = GameObject.Find("Player").GetComponent<PlayerController_Sally>();
     }
 
     // Update is called once per frame
@@ -35,10 +36,19 @@ public class UIController_Sally : MonoBehaviour
             life[i].SetActive(false);
         }
 
-        for (int i = 0; i < heart.lifeCount; i++)
+        for (int i = 0; i < player.lifeCount; i++)
         {
             life[i].SetActive(true);
         }
 
+        if(player.lifeCount == 0)
+        {
+            player.lifeCount = 0;
+            gameoverUI.SetActive(true);
+        }
+        else
+        {
+            gameoverUI.SetActive(false);
+        }
     }
 }
