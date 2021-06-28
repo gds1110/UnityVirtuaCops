@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rotate_Sally : MonoBehaviour
 {
-    public float speed = 10;
+    public float speed = 1;
     public Vector3 rotateV;
 
     Vector3 position;

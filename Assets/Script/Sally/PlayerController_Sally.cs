@@ -6,7 +6,7 @@ public class PlayerController_Sally : MonoBehaviour
 {
     public int lifeCount;
     public int lifeMaxCount = 5;
-
+    public GameObject Cam;
     private void OnEnable()
     {
         lifeCount = lifeMaxCount;
@@ -19,6 +19,7 @@ public class PlayerController_Sally : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gameObject.transform.rotation = Cam.transform.rotation;
         if(Input.GetKeyDown(KeyCode.Space))
         {
             lifeCount--;

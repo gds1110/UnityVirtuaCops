@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class UIController_Sally : MonoBehaviour
 {
-    Gun_Sally gun;
-    PlayerController_Sally player;
-
+    
+    [SerializeField]
     public GameObject[] hotdog;
     public GameObject[] life;
     public GameObject gameoverUI;
 
+    public Gun_Sally gun;
+    public PlayerController_Sally player;
     // Start is called before the first frame update
     void Start()
     {

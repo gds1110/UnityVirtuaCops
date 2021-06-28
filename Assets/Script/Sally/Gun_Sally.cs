@@ -17,7 +17,7 @@ public class Gun_Sally : MonoBehaviour
     public Transform fireTransform; // 총알이 발사될 위치
 
     public float damage = 25; // 공격력
-    private float fireDistance = 50f; // 사정거리
+    private float fireDistance = 10f; // 사정거리
 
     public int ammoRemain = 100; // 남은 전체 탄약
     public int magCapacity = 6;  // 탄창 용량
@@ -29,7 +29,7 @@ public class Gun_Sally : MonoBehaviour
 
     public GameObject bulletPrefab;
     public GameObject firePos;
-
+    public Camera cam;
     private void OnEnable()
     {
         // 총 상태 초기화
@@ -53,7 +53,7 @@ public class Gun_Sally : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 hitPosition = Vector3.zero;
-
+        Ray ray;
         //Debug.DrawRay(transform.position, transform.right * fireDistance, Color.blue, 0.3f);
 
         //if (Physics.Raycast(fireTransform.position, fireTransform.right, out hit, fireDistance))
@@ -72,22 +72,39 @@ public class Gun_Sally : MonoBehaviour
         //    hitPosition = fireTransform.position + fireTransform.forward * fireDistance;
         //}
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    // 화면상의 마우스 좌표 가져오기
 
-        //Debug.DrawRay(transform.position, -transform.right * maxDistance, Color.blue, 0.3f);   // 레이를 씬에서 보기 위해 로그 찍어보는 코드
+        //ray = Camera.main.ScreenPointToRay(Input.mousePosition);    // 화면상의 마우스 좌표 가져오기
+        ray = cam.ScreenPointToRay(Input.mousePosition);    // 화면상의 마우스 좌표 가져오기
+
+        //Debug.DrawRay(transform.position, transform.forward * fireDistance, Color.blue, 0.3f);   // 레이를 씬에서 보기 위해 로그 찍어보는 코드
 
         // 레이캐스트 과정
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        if (Physics.Raycast(ray, out hit,fireDistance)) //Mathf.Infinity))
         {
             Debug.Log(hit.collider.gameObject.name);
-            //hit.transform.GetComponent<MeshRenderer>().material.color = Color.red;  // 충돌 감지를 한다면 레이와 충돌한 물체는 빨간색으로 변함
+           // hit.transform.GetComponent<MeshRenderer>().material.color = Color.red;  // 충돌 감지를 한다면 레이와 충돌한 물체는 빨간색으로 변함
+            
         }
         //Vector3 firePos = transform.position + transform.forward + new Vector3(0f, 0.5f, 0f);
 
+        //test
+        //if(Physics.Raycast(fireTransform.position,fireTransform.forward,out hit,fireDistance))
+        //{
+        //      Debug.Log(hit.collider.gameObject.name);
+        //}
+
+        //test end
+
         Vector3 mousPos = Input.mousePosition;
         var bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity).GetComponent<Bullet_Sally>();
-        bullet.transform.LookAt(Camera.main.ScreenToWorldPoint(new Vector3(mousPos.x, mousPos.y, 1)));
-        //bullet.transform.rotation = Quaternion.Euler(0, 0, 0);
+      
+        
+        bullet.transform.LookAt(cam.ScreenToWorldPoint(new Vector3(mousPos.x, mousPos.y, 1)));
+        
+        //bullet.GetComponent<Bullet_Sally>().Fire(hit.point);
+        //bullet.transform.LookAt(fireTransform);
+        
+        bullet.transform.rotation = Quaternion.Euler(0, 0, 0);
         bullet.Fire(transform.forward);
        
         magAmmo--;

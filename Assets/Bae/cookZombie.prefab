@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6686185643277174004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.04, y: 0, z: 2.85}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6686185643277408560}
@@ -133,10 +133,11 @@ MonoBehaviour:
   myTransform: {fileID: 6686185643277408404}
   animator: {fileID: 6686185643267798738}
   explosionEffect: {fileID: 1764654978243476, guid: a98b15aa948478849b54661e4d9a317e, type: 3}
-  isWalk: 0
+  isWalk: 1
   isDeath: 0
   deathWaitingTime: 3
   dist: 0
+  isAppear: 0
 --- !u!114 &6686185643112869001
 MonoBehaviour:
   m_ObjectHideFlags: 0

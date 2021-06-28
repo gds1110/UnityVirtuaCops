@@ -17,6 +17,11 @@ public class FollowPlayer : MonoBehaviour
     public float dist;
     public bool isAppear;
     bool isTarget;
+    private void Awake()
+    {
+        target = GameObject.FindWithTag("Player").gameObject.transform;
+
+    }
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -55,7 +60,7 @@ public class FollowPlayer : MonoBehaviour
        
         dist = Vector3.Distance(target.position, myTransform.position);
 
-        if (dist <= 5 )
+        if (dist <= 10 )
         {
             animator.SetTrigger("Close with Player");
         }
