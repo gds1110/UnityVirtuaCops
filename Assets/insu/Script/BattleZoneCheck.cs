@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
-using Cinemachine; 
+//using Cinemachine; 
 
 public class BattleZoneCheck : MonoBehaviour
 {
