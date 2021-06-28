@@ -22,6 +22,11 @@ public class PlayerController_Sally : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             lifeCount--;
+            
+            if(lifeCount <= 0)
+            {
+                lifeCount = 0;
+            }
         }
     }
 }
