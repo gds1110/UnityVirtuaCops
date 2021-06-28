@@ -43,9 +43,9 @@ public class Raycast_Sally : MonoBehaviour
             ////bullet.transform.rotation = Quaternion.Euler(0, 0, 0);
             //bullet.Fire(transform.forward);
         }
-        ///Debug.Log(Input.mousePosition);
-        ///
-        if(Input.GetKeyDown("r"))
+        //Debug.Log(Input.mousePosition);
+        
+        if(Input.GetMouseButtonDown(1))
         {
             gun.Reload();
         }
