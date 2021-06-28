@@ -2016,13 +2016,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6686185643112869002, guid: a3ed1310d483172498ebad5837359acf, type: 3}
-      propertyPath: isWalk
+      propertyPath: isAppear
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6686185643112869002, guid: a3ed1310d483172498ebad5837359acf, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1380463415}
     - target: {fileID: 6686185643277174004, guid: a3ed1310d483172498ebad5837359acf, type: 3}
       propertyPath: m_Name
       value: cookZombie
@@ -2037,7 +2033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6686185643277408404, guid: a3ed1310d483172498ebad5837359acf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6686185643277408404, guid: a3ed1310d483172498ebad5837359acf, type: 3}
       propertyPath: m_LocalPosition.z
