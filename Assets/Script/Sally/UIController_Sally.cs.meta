@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 3475fa82fa21ce94f824a508894634ba
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - hotdog: {instanceID: 0}
+  - life: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
