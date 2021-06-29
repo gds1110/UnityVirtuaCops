@@ -51,43 +51,24 @@ public class Gun_Sally : MonoBehaviour
     // 실제 발사 처리
     private void Shot()
     {
-        RaycastHit hit;
-        Vector3 hitPosition = Vector3.zero;
+        // 충돌 감지
+        RaycastHit hit; 
 
-        //Debug.DrawRay(transform.position, transform.right * fireDistance, Color.blue, 0.3f);
-
-        //if (Physics.Raycast(fireTransform.position, fireTransform.right, out hit, fireDistance))
-        //{
-        //    IDamageable target = hit.collider.GetComponent<IDamageable>();
-
-        //    if (target != null)
-        //    {
-        //        target.OnDamage(damage, hit.point, hit.normal);
-        //    }
-
-        //    hitPosition = hit.point;
-        //}
-        //else
-        //{
-        //    hitPosition = fireTransform.position + fireTransform.forward * fireDistance;
-        //}
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    // 화면상의 마우스 좌표 가져오기
-
-        //Debug.DrawRay(transform.position, -transform.right * maxDistance, Color.blue, 0.3f);   // 레이를 씬에서 보기 위해 로그 찍어보는 코드
+        // 화면상의 마우스 좌표 가져오기
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         // 레이캐스트 과정
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
             Debug.Log(hit.collider.gameObject.name);
-            //hit.transform.GetComponent<MeshRenderer>().material.color = Color.red;  // 충돌 감지를 한다면 레이와 충돌한 물체는 빨간색으로 변함
         }
-        //Vector3 firePos = transform.position + transform.forward + new Vector3(0f, 0.5f, 0f);
 
         Vector3 mousPos = Input.mousePosition;
+
         var bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity).GetComponent<Bullet_Sally>();
+        
         bullet.transform.LookAt(Camera.main.ScreenToWorldPoint(new Vector3(mousPos.x, mousPos.y, 1)));
-        //bullet.transform.rotation = Quaternion.Euler(0, 0, 0);
+        
         bullet.Fire(transform.forward);
        
         magAmmo--;
@@ -96,6 +77,10 @@ public class Gun_Sally : MonoBehaviour
             state = State.Empty;
         }
     }
+
+    //레이를 씬에서 보기 위해 로그 찍어보는 코드
+    //Debug.DrawRay(transform.position, -transform.right * fireDistance, Color.blue, 0.3f); 
+    //hit.transform.GetComponent<MeshRenderer>().material.color = Color.red;  // 충돌 감지를 한다면 레이와 충돌한 물체는 빨간색으로 변함
 
     // 재장전 시도
     public bool Reload()
