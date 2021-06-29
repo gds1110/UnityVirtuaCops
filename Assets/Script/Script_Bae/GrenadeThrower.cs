@@ -18,7 +18,6 @@ public class GrenadeThrower : MonoBehaviour
         if (gameObject.CompareTag("Boss"))
         {
             grenadePrefab.transform.localScale = new Vector3(10f,10f,10f);
-          
         }
     }
 
