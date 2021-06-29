@@ -15,7 +15,10 @@ public class Boss : MonoBehaviour
     public int hp;
 
     public bool isDeath;
-
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+    }
     void Start()
     {
         animator = GetComponent<Animator>();

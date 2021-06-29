@@ -134,7 +134,7 @@ MonoBehaviour:
   myTransform: {fileID: 6686185643277408404}
   animator: {fileID: 6686185643267798738}
   explosionEffect: {fileID: 1764654978243476, guid: a98b15aa948478849b54661e4d9a317e, type: 3}
-  appearEffect: {fileID: 1025285306637258, guid: d8f0099df63275647a8bcf646df1ca00, type: 3}
+  appearEffect: {fileID: 198220379293217532, guid: d8f0099df63275647a8bcf646df1ca00, type: 3}
   isWalk: 0
   isDeath: 0
   dist: 0

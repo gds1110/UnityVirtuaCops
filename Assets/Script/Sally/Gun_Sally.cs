@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Gun_Sally : MonoBehaviour
 {
+    public bool isCinema;
     // 총의 상태를 표현하는데 사용할 타입을 선언한다
     public enum State
     {
@@ -30,7 +31,6 @@ public class Gun_Sally : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject firePos;
     public AudioClip clip;
-
     private void OnEnable()
     {
         // 총 상태 초기화
@@ -43,11 +43,24 @@ public class Gun_Sally : MonoBehaviour
         magAmmo = magCapacity;
         state = State.Ready;
         lastFireTime = 0;
-
+        isCinema = true;
     }
+    public void CinemaOn()
+    {
+        isCinema = true;
+    }
+    public void CinemaOut()
+    {
+        isCinema = false;
+    }
+
     // 발사 시도
     public void Fire()
     {
+        if(isCinema==true)
+        {
+            return;
+        }
         if (state == State.Ready && Time.time >= lastFireTime + timeBetFire)
         {
             lastFireTime = Time.time;
@@ -60,6 +73,11 @@ public class Gun_Sally : MonoBehaviour
     // 실제 발사 처리
     private void Shot()
     {
+
+        if (isCinema == true)
+        {
+            return;
+        }
         RaycastHit hit;
         Vector3 hitPosition = Vector3.zero;
 
