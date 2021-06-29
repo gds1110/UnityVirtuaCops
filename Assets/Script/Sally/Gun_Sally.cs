@@ -19,12 +19,12 @@ public class Gun_Sally : MonoBehaviour
     public float damage = 25; // 공격력
     private float fireDistance = 50f; // 사정거리
 
-    public int ammoRemain = 100; // 남은 전체 탄약
+    public int ammoRemain = 10000; // 남은 전체 탄약
     public int magCapacity = 6;  // 탄창 용량
     public int magAmmo; // 현재 탄창에 남아있는 탄약
 
     public float timeBetFire = 0.12f; // 총알 발사 간격
-    public float reloadTime = 1.0f; // 재장전 소요 시간
+    public float reloadTime = 0.5f; // 재장전 소요 시간
     private float lastFireTime; // 총을 마지막으로 발사한 시점
 
     public GameObject bulletPrefab;
