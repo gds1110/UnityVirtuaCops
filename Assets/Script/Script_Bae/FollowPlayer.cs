@@ -25,7 +25,6 @@ public class FollowPlayer : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
-        deathWaitingTime = 1.0f;
         //isWalk = false;
         isWalk = false;
         isDeath = false;

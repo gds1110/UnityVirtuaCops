@@ -14539,6 +14539,7 @@ MonoBehaviour:
   SetWidth: 800
   SetHeight: 600
   fullscreen: 1
+  PlayerObject: {fileID: 545480526}
 --- !u!1001 &1216802595
 PrefabInstance:
   m_ObjectHideFlags: 0

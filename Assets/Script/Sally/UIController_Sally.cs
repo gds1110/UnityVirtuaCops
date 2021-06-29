@@ -13,12 +13,15 @@ public class UIController_Sally : MonoBehaviour
     public int SetWidth;
     public int SetHeight;
     public bool fullscreen;
+    public GameObject PlayerObject;
     // Start is called before the first frame update
     void Start()
     {
-        Screen.SetResolution(Screen.width, Screen.width * SetWidth / SetHeight, fullscreen);
-        gun = GameObject.Find("Player").GetComponent<Gun_Sally>();
-        player = GameObject.Find("Player").GetComponent<PlayerController_Sally>();
+        //Screen.SetResolution(Screen.width, Screen.width * SetWidth / SetHeight, fullscreen);
+        //gun = GameObject.Find("Player").GetComponent<Gun_Sally>();
+        //player = GameObject.Find("Player").GetComponent<PlayerController_Sally>();
+        gun = PlayerObject.GetComponent<Gun_Sally>();
+        player = PlayerObject.GetComponent<PlayerController_Sally>();
     }
 
     // Update is called once per frame

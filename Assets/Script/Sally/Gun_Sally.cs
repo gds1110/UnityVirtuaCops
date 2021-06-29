@@ -38,7 +38,13 @@ public class Gun_Sally : MonoBehaviour
         state = State.Ready;
         lastFireTime = 0;
     }
+    public void Awake()
+    {        // 총 상태 초기화
+        magAmmo = magCapacity;
+        state = State.Ready;
+        lastFireTime = 0;
 
+    }
     // 발사 시도
     public void Fire()
     {
