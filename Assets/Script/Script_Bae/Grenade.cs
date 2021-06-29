@@ -57,32 +57,32 @@ public class Grenade : MonoBehaviour
     void Explode()
     {
         Instantiate(exlposionEffect, transform.position, transform.rotation);
-        // ¿Ã∆Â∆Æ 
-        Collider[] collidersToDestroy = Physics.OverlapSphere(transform.position, radius);
-        foreach (Collider nearbyObject in collidersToDestroy)
-        {
-            //Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-            //if(rb != null)
-            //{
-            //    rb.AddExplosionForce(force, transform.position, radius);
-            //}
-
-            Destructible dest = nearbyObject.GetComponent<Destructible>();
-            if (dest != null)
-            {
-                dest.Destroy();
-            }
-        }
-
-        Collider[] collidersToMove = Physics.OverlapSphere(transform.position, radius);
-        //foreach (Collider nearbyObject in collidersToMove)
+        //// ¿Ã∆Â∆Æ 
+        //Collider[] collidersToDestroy = Physics.OverlapSphere(transform.position, radius);
+        //foreach (Collider nearbyObject in collidersToDestroy)
         //{
-        //    Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-        //    if (rb != null)
+        //    //Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+        //    //if(rb != null)
+        //    //{
+        //    //    rb.AddExplosionForce(force, transform.position, radius);
+        //    //}
+
+        //    Destructible dest = nearbyObject.GetComponent<Destructible>();
+        //    if (dest != null)
         //    {
-        //        rb.AddExplosionForce(force, transform.position, radius);
+        //        dest.Destroy();
         //    }
         //}
+
+        //Collider[] collidersToMove = Physics.OverlapSphere(transform.position, radius);
+        ////foreach (Collider nearbyObject in collidersToMove)
+        ////{
+        ////    Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+        ////    if (rb != null)
+        ////    {
+        ////        rb.AddExplosionForce(force, transform.position, radius);
+        ////    }
+        ////}
 
         // ªË¡¶
         Destroy(gameObject);
