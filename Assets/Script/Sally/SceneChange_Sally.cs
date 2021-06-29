@@ -7,7 +7,7 @@ public class SceneChange_Sally : MonoBehaviour
 {
     public void StartScene()
     {
-        SceneManager.LoadScene("StartScnen");
+        SceneManager.LoadScene("StartScene");
     }
 
     public void SecondScene()

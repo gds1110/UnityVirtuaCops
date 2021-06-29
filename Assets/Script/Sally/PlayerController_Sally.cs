@@ -28,5 +28,6 @@ public class PlayerController_Sally : MonoBehaviour
                 lifeCount = 0;
             }
         }
+       
     }
 }

@@ -17,11 +17,11 @@ public class FollowPlayer : MonoBehaviour
     public float dist;
     public bool isAppear;
     bool isTarget;
+    public AudioClip clip;
     void Start()
     {
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
-        deathWaitingTime = 3.0f;
         isWalk = false;
         isDeath = false;
         isAppear = true;
@@ -37,6 +37,7 @@ public class FollowPlayer : MonoBehaviour
         {
             animator.SetTrigger("Appear");
             isAppear = false;
+            SoundManager.instance.SFXPlay("Zombie_Aggresive", clip);
         }
 
         if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Appear") && isAppear != true)
@@ -59,20 +60,25 @@ public class FollowPlayer : MonoBehaviour
         {
             animator.SetTrigger("Close with Player");
         }
+   
 
-        if(isWalk)
+        if (isWalk)
         {
             animator.SetBool("Walk", true);
+            
         }
         else
             animator.SetBool("Walk", false);
 
-
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Die") &&
-            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= deathWaitingTime)
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+        {
+            SoundManager.instance.SFXPlay("ZombieWalk", clip);
+        }
+        
+        if (animator.GetCurrentAnimatorStateInfo(1).IsName("Die"))
         {
             Instantiate(explosionEffect, myTransform.position, myTransform.rotation);
-            Destroy(gameObject);
+            Destroy(gameObject,2);
         }
 
     }
@@ -82,6 +88,7 @@ public class FollowPlayer : MonoBehaviour
         if(collision.gameObject.CompareTag("Player") && isDeath != true)
         {
             animator.SetTrigger("Death");
+            SoundManager.instance.SFXPlay("ZombieDeath_1", clip);
             isDeath = true;
         }
     }
