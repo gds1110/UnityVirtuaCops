@@ -12,6 +12,17 @@ public class Grenade : MonoBehaviour
     float countdown;
     bool hasExploded = false;
 
+    class Hp
+    {
+        private int _data;
+        public int data
+        {
+            get { return _data; }    // _data 반환
+            set { _data = value; }   // value 키워드 사용
+        }
+    }
+
+
     void Start()
     {
         countdown = delay;

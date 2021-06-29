@@ -9,9 +9,17 @@ public class GrenadeThrower : MonoBehaviour
     public Animator animator;
     int throwCount = 0;
     int maxThrowCount = 1;
+
+
     private void Start()
     {
+   
         animator = GetComponent<Animator>();
+        if (gameObject.CompareTag("Boss"))
+        {
+            grenadePrefab.transform.localScale = new Vector3(10f,10f,10f);
+          
+        }
     }
 
     void Update()
@@ -23,6 +31,7 @@ public class GrenadeThrower : MonoBehaviour
             throwCount < maxThrowCount)
         {
             ThrowGrenade();
+  
             // 다음 상태로
             animator.SetTrigger("Throw");
             throwCount++;
