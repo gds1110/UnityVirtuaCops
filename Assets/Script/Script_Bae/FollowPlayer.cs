@@ -9,7 +9,7 @@ public class FollowPlayer : MonoBehaviour
     public Transform myTransform;
     public Animator animator;
     public GameObject explosionEffect;
-    public ParticleSystem appearEffect;
+    public GameObject appearEffect;
     private Rigidbody rigidbody;
     public bool isWalk;
     public bool isDeath;
@@ -38,19 +38,17 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("Appear") && isAppear == true)
         {
             Instantiate(appearEffect, myTransform.position, myTransform.rotation);
-            appearEffect.GetComponent<ParticleSystem>().Play();
-            appearEffect.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-
+            Destroy(appearEffect.gameObject);
             isAppear = false;
         }
         
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("Appear") && isTarget != true)
         {
             isTarget = true;
-            
 
         }
         if (isTarget)
