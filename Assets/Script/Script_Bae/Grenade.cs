@@ -34,6 +34,12 @@ public class Grenade : MonoBehaviour
         {
             Explode();
             hasExploded = true;
+            other.gameObject.GetComponent<PlayerController_Sally>().lifeCount--;
+        }
+        if(other.gameObject.CompareTag("Bullet")&&!hasExploded)
+        {
+            Explode();
+            hasExploded = true;
         }
     }
 
