@@ -18,19 +18,10 @@ public class ColorChange : MonoBehaviour, /*ISelectHandler,*/ IPointerEnterHandl
     public void OnPointerEnter(PointerEventData eventData)
     {
         text.color = Color.yellow;
-
-        // Do something.
-        //Debug.Log("<color=red>Event:</color> Completed mouse highlight.");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         text.color = Color.white;
     }
-    // When selected.
-    //public void OnSelect(BaseEventData eventData)
-    //{
-    //    // Do something.
-    //    Debug.Log("<color=red>Event:</color> Completed selection.");
-    //}
 }
