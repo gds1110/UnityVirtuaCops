@@ -29,6 +29,7 @@ public class Gun_Sally : MonoBehaviour
 
     public GameObject bulletPrefab;
     public GameObject firePos;
+    public AudioClip clip;
 
     private void OnEnable()
     {
@@ -45,6 +46,8 @@ public class Gun_Sally : MonoBehaviour
         {
             lastFireTime = Time.time;
             Shot();
+               
+    SoundManager.instance.SFXPlay("ThrowSound(Woosh)", clip);
         }
     }
 
@@ -80,6 +83,7 @@ public class Gun_Sally : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
             Debug.Log(hit.collider.gameObject.name);
+            SoundManager.instance.SFXPlay("Splat_1", clip);
             //hit.transform.GetComponent<MeshRenderer>().material.color = Color.red;  // 충돌 감지를 한다면 레이와 충돌한 물체는 빨간색으로 변함
         }
         //Vector3 firePos = transform.position + transform.forward + new Vector3(0f, 0.5f, 0f);

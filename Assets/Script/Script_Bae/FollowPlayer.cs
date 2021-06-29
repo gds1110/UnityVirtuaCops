@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    // ÂÑ¾Æ°¥ ´ë»ó
+    // ï¿½Ñ¾Æ°ï¿½ ï¿½ï¿½ï¿?
     public GameObject target;
-    // Á»ºñÀÇ ÇöÀ§Ä¡
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
     public Transform myTransform;
     public Animator animator;
     public GameObject explosionEffect;
@@ -21,12 +21,14 @@ public class FollowPlayer : MonoBehaviour
     {
         target = GameObject.FindWithTag("Player");
     }
+    public AudioClip clip;
     void Start()
     {
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
         deathWaitingTime = 1.0f;
         //isWalk = false;
+        isWalk = false;
         isDeath = false;
         isAppear = true;
         isTarget = false;
@@ -42,6 +44,7 @@ public class FollowPlayer : MonoBehaviour
             animator.SetTrigger("Appear");
 
             isAppear = false;
+            SoundManager.instance.SFXPlay("Zombie_Aggresive", clip);
         }
 
         if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Appear") && isAppear != true)
@@ -64,20 +67,25 @@ public class FollowPlayer : MonoBehaviour
         {
             animator.SetTrigger("Close with Player");
         }
+   
 
-        if(isWalk)
+        if (isWalk)
         {
             animator.SetBool("Walk", true);
+            
         }
         else
             animator.SetBool("Walk", false);
 
-
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Die") &&
-            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= deathWaitingTime)
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+        {
+            SoundManager.instance.SFXPlay("ZombieWalk", clip);
+        }
+        
+        if (animator.GetCurrentAnimatorStateInfo(1).IsName("Die"))
         {
             Instantiate(explosionEffect, myTransform.position, myTransform.rotation);
-            Destroy(gameObject);
+            Destroy(gameObject,2);
         }
 
     }
@@ -87,6 +95,7 @@ public class FollowPlayer : MonoBehaviour
         if(collision.gameObject.tag.Equals("Bullet") && isDeath != true)
         {
             animator.SetTrigger("Death");
+            SoundManager.instance.SFXPlay("ZombieDeath_1", clip);
             isDeath = true;
             StartCoroutine(DeathTime());
         }
@@ -94,7 +103,7 @@ public class FollowPlayer : MonoBehaviour
     IEnumerator DeathTime()
     {
 
-        yield return new WaitForSeconds(1.0f); // »ý¼º Àü µô·¹ÀÌ
+        yield return new WaitForSeconds(1.0f); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         gameObject.GetComponentInParent<EnemySpawn_insu>().deathCount++;
         Destroy(gameObject);
     }
