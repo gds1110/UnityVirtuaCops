@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Boss : MonoBehaviour
 {
     // ÂÑ¾Æ°¥ ´ë»ó
@@ -13,7 +14,8 @@ public class Boss : MonoBehaviour
     private Rigidbody rigidbody;
     public AudioClip clip;
     public int hp;
-
+    int randomNum;
+    bool isPattern;
     public bool isDeath;
     private void Awake()
     {
@@ -25,11 +27,45 @@ public class Boss : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         hp = 100;
         isDeath = false;
+        isPattern = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //randomNum = Random.Range(0, 3);
+
+        //if(randomNum == 0 && isPattern != true)
+        //{
+        //    animator.SetTrigger("Throw");
+        //    isPattern = true;
+        //}
+        //else if (randomNum == 1 && isPattern != true)
+        //{
+        //    animator.SetTrigger("RunLeft");
+        //    isPattern = true;
+        //}
+        //else if (randomNum == 2 && isPattern != true)
+        //{
+        //    animator.SetTrigger("RunRight");
+        //    isPattern = true;
+        //}
+
+        //if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && isPattern == true
+        //    && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.2f)
+        //{
+        //    isPattern = false;
+        //}
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && isPattern != true)
+        {
+            animator.SetTrigger("Throw");
+            isPattern = true;
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Throw") && isPattern == true)
+        {
+            isPattern = false;
+        }
+
 
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("RunLeft"))
@@ -47,7 +83,7 @@ public class Boss : MonoBehaviour
             rigidbody.useGravity = false;
         }
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("BigAttack") &&
-         animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.8f)
+         animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.4f)
         {
             transform.Translate(0, -8 * Time.deltaTime,0);
             rigidbody.useGravity = true;
@@ -64,6 +100,8 @@ public class Boss : MonoBehaviour
             Instantiate(explosionEffect, myTransform.position, myTransform.rotation);
             Destroy(gameObject, 2);
         }
+
+        
 
     }
 
