@@ -13,7 +13,6 @@ public class FollowPlayer : MonoBehaviour
     private Rigidbody rigidbody;
     public bool isWalk;
     public bool isDeath;
-    public float deathWaitingTime;
     public float dist;
     public bool isAppear;
     bool isTarget;

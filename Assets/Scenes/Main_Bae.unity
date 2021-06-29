@@ -3241,6 +3241,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c796414cf298dec4e8ecc1371a18f885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &402384826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402384822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a6ba2bc47693e4883db22075a2d46c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwForce: 10
+  grenadePrefab: {fileID: 4977843281744366725, guid: 1868e8740f6d3a648a7ee88475f5302c, type: 3}
+  animator: {fileID: 0}
 --- !u!1001 &404174533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9369,6 +9384,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b7c757338cae4874eaf736fc71a3baf3, type: 3}
       propertyPath: m_Name
       value: Chef
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b7c757338cae4874eaf736fc71a3baf3, type: 3}
+      propertyPath: m_TagString
+      value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 1130005626922711545, guid: b7c757338cae4874eaf736fc71a3baf3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
