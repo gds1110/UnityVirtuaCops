@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8988049688673949223}
   - component: {fileID: 419674582604631966}
   - component: {fileID: 2823080523508079252}
-  - component: {fileID: 3722076206604502215}
-  - component: {fileID: 2773353383734431659}
+  - component: {fileID: 5196556770579269738}
+  - component: {fileID: 4987023129705983811}
   m_Layer: 0
   m_Name: Hotdog
   m_TagString: Untagged
@@ -116,7 +116,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3722076206604502215
+--- !u!114 &5196556770579269738
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,11 +125,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8988049688671946983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc276427d54f27447947e6ebd57f156d, type: 3}
+  m_Script: {fileID: 11500000, guid: be4eef50595498b4097b623ded61795e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
---- !u!114 &2773353383734431659
+--- !u!114 &4987023129705983811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8988049688671946983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 638f14434182621458feeca8e6ff18a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ed6662c033976643a59299ba5b9fa62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10

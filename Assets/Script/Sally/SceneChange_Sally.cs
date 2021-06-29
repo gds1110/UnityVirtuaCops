@@ -12,6 +12,6 @@ public class SceneChange_Sally : MonoBehaviour
 
     public void SecondScene()
     {
-        SceneManager.LoadScene("Main_Sally");
+        SceneManager.LoadScene("Main_Insu");
     }
 }
