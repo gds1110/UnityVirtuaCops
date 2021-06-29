@@ -139,6 +139,7 @@ MonoBehaviour:
   deathWaitingTime: 3
   dist: 0
   isAppear: 0
+  clip: {fileID: 8300000, guid: 7137734debc42a14fbaf61e4c4885960, type: 3}
 --- !u!114 &6686185643112869001
 MonoBehaviour:
   m_ObjectHideFlags: 0

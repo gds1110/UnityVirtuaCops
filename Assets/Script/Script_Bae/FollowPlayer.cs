@@ -44,7 +44,7 @@ public class FollowPlayer : MonoBehaviour
             animator.SetTrigger("Appear");
 
             isAppear = false;
-            SoundManager.instance.SFXPlay("Zombie_Aggresive", clip);
+            //SoundManager.instance.SFXPlay("Zombie_Aggresive", clip);
         }
 
         if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Appear") && isAppear != true)
@@ -77,12 +77,12 @@ public class FollowPlayer : MonoBehaviour
         else
             animator.SetBool("Walk", false);
 
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
-        {
-            SoundManager.instance.SFXPlay("ZombieWalk", clip);
-        }
+        //if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+        //{
+        //    SoundManager.instance.SFXPlay("ZombieWalk", clip);
+        //}
         
-        if (animator.GetCurrentAnimatorStateInfo(1).IsName("Die"))
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Die"))
         {
             Instantiate(explosionEffect, myTransform.position, myTransform.rotation);
             Destroy(gameObject,2);
@@ -95,7 +95,7 @@ public class FollowPlayer : MonoBehaviour
         if(collision.gameObject.tag.Equals("Bullet") && isDeath != true)
         {
             animator.SetTrigger("Death");
-            SoundManager.instance.SFXPlay("ZombieDeath_1", clip);
+            //SoundManager.instance.SFXPlay("ZombieDeath_1", clip);
             isDeath = true;
             StartCoroutine(DeathTime());
         }
