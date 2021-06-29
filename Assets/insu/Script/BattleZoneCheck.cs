@@ -18,6 +18,8 @@ public class BattleZoneCheck : MonoBehaviour
    
     //public CinemachineVirtualCamera cv;
     float paths;
+    public GameObject target;
+    
     void Start()
     {
         playableDirector.GetComponent<PlayableDirector>();
@@ -45,13 +47,17 @@ public class BattleZoneCheck : MonoBehaviour
             {
                 Checking = true;
                 playableDirector.Pause();
+                
                 //Espawn.gameObject.SetActive(true);
                 Espawn.spawnCheck = true;
+                gameObject.GetComponent<SphereCollider>().enabled = false;
                 //StartCoroutine(BattleTime());
                 StartCoroutine(DuringBattle());
             }
         }
     }
+
+    
     IEnumerator BattleTime()
     {
         yield return new WaitForSeconds(3f);

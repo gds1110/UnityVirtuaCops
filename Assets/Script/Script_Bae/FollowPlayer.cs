@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     // 쫓아갈 대상
-    public Transform target;
+    public GameObject target;
     // 좀비의 현위치
     public Transform myTransform;
     public Animator animator;
@@ -17,12 +17,16 @@ public class FollowPlayer : MonoBehaviour
     public float dist;
     public bool isAppear;
     bool isTarget;
+    private void Awake()
+    {
+        target = GameObject.FindWithTag("Player");
+    }
     void Start()
     {
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
-        deathWaitingTime = 3.0f;
-        isWalk = false;
+        deathWaitingTime = 1.0f;
+        //isWalk = false;
         isDeath = false;
         isAppear = true;
         isTarget = false;
@@ -36,6 +40,7 @@ public class FollowPlayer : MonoBehaviour
         if(isAppear)
         {
             animator.SetTrigger("Appear");
+
             isAppear = false;
         }
 
@@ -43,19 +48,19 @@ public class FollowPlayer : MonoBehaviour
         {
             isTarget = true;
         }
-            if (isTarget)
-            {
-                float prevY = transform.position.y;
+        if (isTarget)
+          {
+             float prevY = transform.position.y;
 
-                transform.LookAt(target);
-                var pos = transform.position;
-                pos.y = prevY;
-                transform.position = pos;
-            }
+             transform.LookAt(target.transform);
+             var pos = transform.position;
+             pos.y = prevY;
+             transform.position = pos;
+           }
        
-        dist = Vector3.Distance(target.position, myTransform.position);
+        dist = Vector3.Distance(target.transform.position, myTransform.position);
 
-        if (dist <= 5 )
+        if (dist <= 18 )
         {
             animator.SetTrigger("Close with Player");
         }
@@ -79,10 +84,18 @@ public class FollowPlayer : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player") && isDeath != true)
+        if(collision.gameObject.tag.Equals("Bullet") && isDeath != true)
         {
             animator.SetTrigger("Death");
             isDeath = true;
+            StartCoroutine(DeathTime());
         }
+    }
+    IEnumerator DeathTime()
+    {
+
+        yield return new WaitForSeconds(1.0f); // 생성 전 딜레이
+        gameObject.GetComponentInParent<EnemySpawn_insu>().deathCount++;
+        Destroy(gameObject);
     }
 }

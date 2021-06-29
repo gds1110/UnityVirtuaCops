@@ -2111,6 +2111,7 @@ MonoBehaviour:
   timeline: {fileID: 11400000, guid: 5f5f582ed60fb594aa845f696c34ae29, type: 2}
   Checking: 0
   Espawn: {fileID: 0}
+  target: {fileID: 0}
 --- !u!65 &128912070
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10174,6 +10175,7 @@ MonoBehaviour:
   timeline: {fileID: 11400000, guid: 5f5f582ed60fb594aa845f696c34ae29, type: 2}
   Checking: 0
   Espawn: {fileID: 0}
+  target: {fileID: 0}
 --- !u!65 &710785371
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12708,7 +12710,7 @@ PlayableDirector:
   - key: {fileID: 3313299606070533187, guid: 5f5f582ed60fb594aa845f696c34ae29, type: 2}
     value: {fileID: 148316655}
   - key: {fileID: 7856122865495355898, guid: 5f5f582ed60fb594aa845f696c34ae29, type: 2}
-    value: {fileID: 264371450}
+    value: {fileID: 1558508305}
   - key: {fileID: 7469719812087395278, guid: 5f5f582ed60fb594aa845f696c34ae29, type: 2}
     value: {fileID: 1910573811}
   - key: {fileID: 6315616161190269927, guid: 5f5f582ed60fb594aa845f696c34ae29, type: 2}
@@ -14394,6 +14396,7 @@ MonoBehaviour:
   timeline: {fileID: 11400000, guid: 5f5f582ed60fb594aa845f696c34ae29, type: 2}
   Checking: 0
   Espawn: {fileID: 0}
+  target: {fileID: 0}
 --- !u!135 &1043115279
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15174,6 +15177,7 @@ MonoBehaviour:
   timeline: {fileID: 11400000, guid: 5f5f582ed60fb594aa845f696c34ae29, type: 2}
   Checking: 0
   Espawn: {fileID: 0}
+  target: {fileID: 0}
 --- !u!65 &1141228085
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15625,6 +15629,7 @@ MonoBehaviour:
   timeline: {fileID: 11400000, guid: 5f5f582ed60fb594aa845f696c34ae29, type: 2}
   Checking: 0
   Espawn: {fileID: 0}
+  target: {fileID: 0}
 --- !u!65 &1182022674
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16212,6 +16217,9 @@ MonoBehaviour:
   - {fileID: 1931281656}
   - {fileID: 417767143}
   gameoverUI: {fileID: 1709807277}
+  SetWidth: 0
+  SetHeight: 0
+  fullscreen: 0
 --- !u!1001 &1216802595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16737,6 +16745,7 @@ MonoBehaviour:
   timeline: {fileID: 11400000, guid: 5f5f582ed60fb594aa845f696c34ae29, type: 2}
   Checking: 0
   Espawn: {fileID: 0}
+  target: {fileID: 0}
 --- !u!65 &1260975049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18852,6 +18861,7 @@ MonoBehaviour:
   timeline: {fileID: 11400000, guid: 5f5f582ed60fb594aa845f696c34ae29, type: 2}
   Checking: 0
   Espawn: {fileID: 0}
+  target: {fileID: 0}
 --- !u!65 &1414856593
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19344,6 +19354,7 @@ MonoBehaviour:
   timeline: {fileID: 11400000, guid: 5f5f582ed60fb594aa845f696c34ae29, type: 2}
   Checking: 0
   Espawn: {fileID: 0}
+  target: {fileID: 0}
 --- !u!65 &1469772840
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19944,6 +19955,7 @@ MonoBehaviour:
   timeline: {fileID: 11400000, guid: 5f5f582ed60fb594aa845f696c34ae29, type: 2}
   Checking: 0
   Espawn: {fileID: 0}
+  target: {fileID: 0}
 --- !u!65 &1516717714
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25077,6 +25089,7 @@ MonoBehaviour:
   timeline: {fileID: 11400000, guid: 5f5f582ed60fb594aa845f696c34ae29, type: 2}
   Checking: 0
   Espawn: {fileID: 0}
+  target: {fileID: 0}
 --- !u!65 &1930585951
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -8,12 +8,12 @@ public class Bullet_Sally : MonoBehaviour
     bool isFire;    // 총알이 날아가기 시작했다는 변수
     Vector3 direction;  // 총알이 날아가는 방향
     [SerializeField]
-    float speed = 5;    // 총알이 날아가는 속도
+    float speed = 10;    // 총알이 날아가는 속도
 
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 5f);
     }
 
     // Update is called once per frame

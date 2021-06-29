@@ -10,10 +10,13 @@ public class UIController_Sally : MonoBehaviour
     public GameObject[] hotdog;
     public GameObject[] life;
     public GameObject gameoverUI;
-
+    public int SetWidth;
+    public int SetHeight;
+    public bool fullscreen;
     // Start is called before the first frame update
     void Start()
     {
+        Screen.SetResolution(Screen.width, Screen.width * SetWidth / SetHeight, fullscreen);
         gun = GameObject.Find("Player").GetComponent<Gun_Sally>();
         player = GameObject.Find("Player").GetComponent<PlayerController_Sally>();
     }

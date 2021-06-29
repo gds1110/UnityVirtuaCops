@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 6686185643112869001}
   m_Layer: 0
   m_Name: cookZombie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6686185643277174004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.04, y: 0, z: 2.85}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6686185643277408560}
@@ -137,6 +137,7 @@ MonoBehaviour:
   isDeath: 0
   deathWaitingTime: 3
   dist: 0
+  isAppear: 0
 --- !u!114 &6686185643112869001
 MonoBehaviour:
   m_ObjectHideFlags: 0

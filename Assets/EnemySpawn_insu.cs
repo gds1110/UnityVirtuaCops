@@ -12,6 +12,12 @@ public class EnemySpawn_insu : MonoBehaviour
     public int monNum = 0;
     public float timer;
     public float waitTime;
+    public int spawnNum = 0;
+    public int deathCount = 0;
+    private void Awake()
+    {
+        
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +25,12 @@ public class EnemySpawn_insu : MonoBehaviour
         timer = 0.7f;
         waitTime = 0.8f;
         battleOff = false;
+        spawnNum = spawnZone.Length;
     }
-
     // Update is called once per frame
     void Update()
     {
+        
         timer += Time.deltaTime;
         if(spawnCheck==true)
         {
@@ -48,16 +55,27 @@ public class EnemySpawn_insu : MonoBehaviour
             if(timer>waitTime)
             {
                 timer = 0;
-                Instantiate(enemyPrefab, spawnZone[monNum++]);
-              
+                //Instantiate(enemyPrefab, spawnZone[monNum++]);
+                var Zombie = Instantiate(enemyPrefab, spawnZone[monNum].position,Quaternion.identity,spawnZone[monNum].parent).GetComponent<FollowPlayer>();
+               // Zombie.target = GetComponentInParent<BattleZoneCheck>().target;
+                if (spawnZone[monNum].position.y<1.0f)
+                {
+                    Zombie.isWalk = true;
+                }
+                else
+                {
+                    Zombie.isWalk = false;
+                }
+                    monNum++;
                 if (monNum >= spawnZone.Length)
                 {
                     spawnCheck = false;
                 }
+                
             }
             
         }
-        if (spawnZone.Length < 1)
+        if (deathCount==spawnNum)
         {
             battleOff = true;
         }

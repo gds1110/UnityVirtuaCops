@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GrenadeThrower : MonoBehaviour
 {
-    public float throwForce = 40f;
+    public float throwForce = 10f;
     public GameObject grenadePrefab;
     public Animator animator;
     int throwCount = 0;
