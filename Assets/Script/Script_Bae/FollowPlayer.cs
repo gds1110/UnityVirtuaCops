@@ -41,8 +41,9 @@ public class FollowPlayer : MonoBehaviour
 
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("Appear") && isAppear == true)
         {
-            Instantiate(appearEffect, myTransform.position, myTransform.rotation);
-            Destroy(appearEffect.gameObject);
+            var varEffect=Instantiate(appearEffect, myTransform.position, myTransform.rotation);
+            Destroy(varEffect,1f);
+           
             isAppear = false;
         }
         
