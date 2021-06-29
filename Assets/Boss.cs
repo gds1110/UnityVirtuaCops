@@ -34,10 +34,32 @@ public class Boss : MonoBehaviour
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("RunLeft"))
         {
-           // SoundManager.instance.SFXPlay("ZombieWalk", clip);
+            transform.Translate(-1 * Time.deltaTime, 0, 0);
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("RunRight"))
+        {
+            transform.Translate(1 * Time.deltaTime, 0, 0);
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("BigAttackJump") &&
+            animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.8f)
+        {
+            transform.Translate(0, 8 * Time.deltaTime, 1 * Time.deltaTime);
+            rigidbody.useGravity = false;
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("BigAttack") &&
+         animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.8f)
+        {
+            transform.Translate(0, -8 * Time.deltaTime,0);
+            rigidbody.useGravity = true;
         }
 
-        if (animator.GetCurrentAnimatorStateInfo(1).IsName("Die"))
+
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("KnockBack"))
+        {
+            transform.Translate(0, 0, -1 * Time.deltaTime);
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
         {
             Instantiate(explosionEffect, myTransform.position, myTransform.rotation);
             Destroy(gameObject, 2);
