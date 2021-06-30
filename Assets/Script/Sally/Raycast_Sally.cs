@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Raycast_Sally : MonoBehaviour
 {
-    RaycastHit hit;             // 충돌 감지
+    //RaycastHit hit;             // 충돌 감지
 
     public GameObject bulletPrefab;
 
