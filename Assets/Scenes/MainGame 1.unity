@@ -3077,31 +3077,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3413738963155038360, guid: 2b134123edb092845aad7f7574464ccb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -75.398575
+      value: -22.799072
       objectReference: {fileID: 0}
     - target: {fileID: 3413738963155038360, guid: 2b134123edb092845aad7f7574464ccb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.93
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3413738963155038360, guid: 2b134123edb092845aad7f7574464ccb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 38.280846
+      value: 25.492935
       objectReference: {fileID: 0}
     - target: {fileID: 3413738963155038360, guid: 2b134123edb092845aad7f7574464ccb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.19920571
+      value: 0.9999686
       objectReference: {fileID: 0}
     - target: {fileID: 3413738963155038360, guid: 2b134123edb092845aad7f7574464ccb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0760898
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3413738963155038360, guid: 2b134123edb092845aad7f7574464ccb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9126857
+      value: -0.007928623
       objectReference: {fileID: 0}
     - target: {fileID: 3413738963155038360, guid: 2b134123edb092845aad7f7574464ccb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.34861487
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3413738963155038360, guid: 2b134123edb092845aad7f7574464ccb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7747,6 +7747,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3413738963189901392, guid: 2b134123edb092845aad7f7574464ccb, type: 3}
   m_PrefabInstance: {fileID: 246079222}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &545480528 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3413738963189901387, guid: 2b134123edb092845aad7f7574464ccb, type: 3}
+  m_PrefabInstance: {fileID: 246079222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545480526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fa1233b98948f4ca389bc686261406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &545480534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3413738963189901393, guid: 2b134123edb092845aad7f7574464ccb, type: 3}
@@ -8168,7 +8179,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!320 &601371424
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -11809,6 +11820,18 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 545480528}
+          m_TargetAssemblyTypeName: Gun_Sally, Assembly-CSharp
+          m_MethodName: CinemaOut
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -20635,7 +20658,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 50
+    FieldOfView: 59.81008
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -25939,7 +25962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 981051575}
-  m_PathPosition: 0.861251
+  m_PathPosition: 0.8556398
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0

@@ -10,10 +10,12 @@ public class UIController_Sally : MonoBehaviour
     public GameObject[] hotdog;
     public GameObject[] life;
     public GameObject gameoverUI;
+    public GameObject gameWinUI;
     public int SetWidth;
     public int SetHeight;
     public bool fullscreen;
     public GameObject PlayerObject;
+    public GameObject boss;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class UIController_Sally : MonoBehaviour
         //player = GameObject.Find("Player").GetComponent<PlayerController_Sally>();
         gun = PlayerObject.GetComponent<Gun_Sally>();
         player = PlayerObject.GetComponent<PlayerController_Sally>();
+       
     }
 
     // Update is called once per frame
@@ -55,6 +58,17 @@ public class UIController_Sally : MonoBehaviour
         else
         {
             gameoverUI.SetActive(false);
+        }
+        if (boss != null)
+        {
+            if (boss.GetComponent<Boss>().isDeath == true)
+            {
+                gameWinUI.SetActive(true);
+            }
+            else
+            {
+                gameWinUI.SetActive(false);
+            }
         }
     }
 }

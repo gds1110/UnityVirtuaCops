@@ -27,7 +27,7 @@ public class Boss : MonoBehaviour
         hp = 100;
         isDeath = false;
     }
-    void StartBattle()
+    public void StartBattle()
     {
         isBattle = true;
     }
@@ -37,17 +37,22 @@ public class Boss : MonoBehaviour
     {
         if(target)
         {
-            //transform.LookAt(target.transform);
-            float prevY = transform.position.y;
-
             transform.LookAt(target.transform);
-            var pos = transform.position;
-            pos.y = prevY;
-            transform.position = pos;
+            //float prevY = transform.position.y;
+
+            //transform.LookAt(target.transform);
+            //var pos = transform.position;
+            //pos.y = prevY;
+            //transform.position = pos;
         }
 
         if (isBattle)
         {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            {
+                animator.SetTrigger("Throw");
+            }
+
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("RunLeft"))
             {
                 transform.Translate(-1 * Time.deltaTime, 0, 0);

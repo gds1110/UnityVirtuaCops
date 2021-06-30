@@ -24,19 +24,28 @@ public class GrenadeThrower : MonoBehaviour
     void Update()
     {
 
+        //if (animator.GetCurrentAnimatorStateInfo(0).IsName("Throw") &&
+        //    animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.4f &&
+        //    animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.6f &&
+        //    throwCount < maxThrowCount)
+        //{
+        //    ThrowGrenade();
+  
+        //    // 다음 상태로
+        //    animator.SetTrigger("Throw");
+        //    throwCount++;
+        //}
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Throw") &&
-            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.4f &&
-            animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.6f &&
-            throwCount < maxThrowCount)
+          throwCount < maxThrowCount)
         {
             ThrowGrenade();
-  
+
             // 다음 상태로
             animator.SetTrigger("Throw");
             throwCount++;
         }
 
-        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Throw"))
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Throw"))
         {
             throwCount = 0;
         }

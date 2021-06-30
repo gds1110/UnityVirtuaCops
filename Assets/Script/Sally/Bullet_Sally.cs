@@ -38,6 +38,7 @@ public class Bullet_Sally : MonoBehaviour
     {
         if(other.GetComponent<Bullet_Sally>() == null)
         {
+            Debug.Log(other.gameObject.name);
             Destroy(gameObject);
         }
     }
